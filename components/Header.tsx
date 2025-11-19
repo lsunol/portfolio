@@ -16,7 +16,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed left-1/2 top-4 z-40 w-full max-w-5xl -translate-x-1/2 px-4">
+    <header className="fixed left-1/2 top-4 z-40 w-full max-w-5xl -translate-x-1/2 px-0">
       <div className="blurred-panel flex items-center justify-between rounded-full border border-white/60 px-6 py-3 shadow-[10px_10px_30px_rgba(163,177,198,0.45),-10px_-10px_30px_rgba(255,255,255,0.9)]">
         <Link href="#hero" className="text-lg font-semibold text-slate-900">
           Lluís Suñol

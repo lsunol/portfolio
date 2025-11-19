@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ChatMock } from "@/components/ChatMock";
 import { FloatingChat } from "@/components/FloatingChat";
 import { Header } from "@/components/Header";
+import { NeuralNetwork } from "@/components/NeuralNetwork";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionTitle } from "@/components/SectionTitle";
 import { TimelineItem } from "@/components/TimelineItem";
@@ -84,16 +85,18 @@ const askMeMessages = [
 
 export default function Home() {
   return (
-    <div className="relative overflow-hidden pb-24">
+    <div className="relative flex min-h-screen flex-col overflow-hidden pb-24">
       <Header />
-      <main className="mx-auto flex max-w-5xl flex-col gap-24 px-4 pt-32 sm:px-6 lg:px-0">
+      <div className="flex flex-1 flex-col">
+        <NeuralNetwork />
+        <main className="mx-auto flex w-full max-w-5xl flex-col gap-24 px-4 sm:px-6 lg:px-0">
         <motion.section
           id="hero"
           variants={sectionVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
-          className="flex min-h-screen flex-col justify-center gap-10"
+          className="flex flex-col justify-center gap-10"
         >
           <div className="neumorphic-surface rounded-[2.5rem] p-8 shadow-[20px_20px_45px_rgba(163,177,198,0.45),-20px_-20px_45px_rgba(255,255,255,0.9)]">
             <p className="text-sm font-semibold uppercase tracking-[0.5em] text-slate-500">Product Engineer</p>
@@ -327,6 +330,7 @@ export default function Home() {
           </div>
         </motion.section>
       </main>
+      </div>
       <FloatingChat />
     </div>
   );
