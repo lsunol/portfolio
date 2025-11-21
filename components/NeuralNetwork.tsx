@@ -38,12 +38,12 @@ export function NeuralNetwork({
   nodeCount = 20,
   connectionDistance = 200,
   impulseColor = {
-    glow: "rgba(59, 130, 246, 0.8)",
-    core: "rgba(147, 197, 253, 0.9)",
+    glow: "var(--neural-impulse-glow, rgba(59, 130, 246, 0.8))",
+    core: "var(--neural-impulse-core, rgba(147, 197, 253, 0.9))",
   },
   nodeColor = {
-    main: "rgba(71, 85, 105, 0.6)",
-    glow: "rgba(100, 116, 139, 0.15)",
+    main: "var(--app-neural-node, rgba(15, 23, 42, 0.6))",
+    glow: "var(--app-neural-glow, rgba(100, 116, 139, 0.15))",
   },
   lineColor = "rgba(100, 116, 139, 0.2)",
   impulseSpeed = [0.015, 0.035],
@@ -67,6 +67,19 @@ export function NeuralNetwork({
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    // Get CSS variables as actual colors
+    const styles = getComputedStyle(document.documentElement);
+    const getColor = (varName: string, fallback: string) => {
+      const value = styles.getPropertyValue(varName).trim();
+      return value || fallback;
+    };
+
+    // Resolve color variables
+    const resolvedNodeMain = getColor("--app-neural-node", "rgba(15, 23, 42, 0.6)");
+    const resolvedNodeGlow = getColor("--app-neural-glow", "rgba(100, 116, 139, 0.15)");
+    const resolvedImpulseGlow = getColor("--neural-impulse-glow", "rgba(59, 130, 246, 0.8)");
+    const resolvedImpulseCore = getColor("--neural-impulse-core", "rgba(147, 197, 253, 0.9)");
 
     // Set canvas size
     const updateCanvasSize = () => {
@@ -251,8 +264,8 @@ export function NeuralNetwork({
 
         // Impulse glow
         const gradient = ctx.createRadialGradient(x, y, 0, x, y, 8);
-        gradient.addColorStop(0, impulseColor.glow);
-        gradient.addColorStop(1, impulseColor.glow.replace("0.8", "0"));
+        gradient.addColorStop(0, resolvedImpulseGlow);
+        gradient.addColorStop(1, resolvedImpulseGlow.replace(/[\d.]+\)$/, "0)"));
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -260,7 +273,7 @@ export function NeuralNetwork({
         ctx.fill();
 
         // Impulse core
-        ctx.fillStyle = impulseColor.core;
+        ctx.fillStyle = resolvedImpulseCore;
         ctx.beginPath();
         ctx.arc(x, y, 3, 0, Math.PI * 2);
         ctx.fill();
@@ -273,7 +286,7 @@ export function NeuralNetwork({
       }
 
       // Draw nodes
-      ctx.fillStyle = nodeColor.main;
+      ctx.fillStyle = resolvedNodeMain;
       nodes.forEach((node) => {
         ctx.beginPath();
         ctx.arc(node.x, node.y, 4, 0, Math.PI * 2);
@@ -283,8 +296,8 @@ export function NeuralNetwork({
       // Node glow
       nodes.forEach((node) => {
         const glowGradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, 8);
-        glowGradient.addColorStop(0, nodeColor.glow);
-        glowGradient.addColorStop(1, nodeColor.glow.replace("0.15", "0"));
+        glowGradient.addColorStop(0, resolvedNodeGlow);
+        glowGradient.addColorStop(1, resolvedNodeGlow.replace(/[\d.]+\)$/, "0)"));
 
         ctx.fillStyle = glowGradient;
         ctx.beginPath();

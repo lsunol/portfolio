@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { PaletteProvider } from "@/components/PaletteProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -21,7 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.variable} bg-[#e7eaef] text-slate-900 antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} text-slate-900 antialiased`} suppressHydrationWarning style={{ background: "var(--app-bg-primary)", color: "var(--app-text-primary)" }}>
+        <PaletteProvider />
         {children}
       </body>
     </html>

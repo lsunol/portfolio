@@ -1,18 +1,140 @@
 @import "tailwindcss";
 
+/* TECH COLD PALETTE - Por defecto */
 :root {
-  --app-bg: #e3e7ee;
-  --app-surface: #f2f5fb;
-  --app-shadow-dark: rgba(163, 177, 198, 0.6);
+  --app-bg-primary: #e8edf5;
+  --app-bg-secondary: #f4f7fc;
+  --app-surface: #f4f7fc;
+  --app-surface-secondary: #d6deee;
+  --app-surface-accent: #cbd5f5;
+  --app-shadow-dark: rgba(15, 23, 42, 0.15);
   --app-shadow-light: rgba(255, 255, 255, 0.9);
+  --app-text-primary: #0f172a;
+  --app-text-secondary: #64748b;
+  --app-button-bg: #0f172a;
+  --app-button-hover: #111827;
+  --app-accent: #cbd5f5;
+  --app-neural-node: rgba(15, 23, 42, 0.6);
+  --app-neural-glow: rgba(100, 116, 139, 0.15);
+  --neural-impulse-glow: rgba(59, 130, 246, 0.8);
+  --neural-impulse-core: rgba(147, 197, 253, 0.9);
 }
 
-@theme inline {
-  --color-background: var(--app-bg);
-  --color-foreground: #111827;
-  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+/* INDIGO + SALMON PALETTE */
+html[data-palette="indigo-salmon"] {
+  --app-bg-primary: #eef1f7 !important;
+  --app-bg-secondary: #f7f9fc !important;
+  --app-surface: #f7f9fc !important;
+  --app-surface-secondary: #eff2f7 !important;
+  --app-surface-accent: #fca5a5 !important;
+  --app-shadow-dark: rgba(17, 24, 39, 0.12) !important;
+  --app-shadow-light: rgba(255, 255, 255, 0.95) !important;
+  --app-text-primary: #111827 !important;
+  --app-text-secondary: #6b7280 !important;
+  --app-button-bg: #111827 !important;
+  --app-button-hover: #1f2937 !important;
+  --app-accent: #4f46e5 !important;
+  --app-neural-node: rgba(17, 24, 39, 0.6) !important;
+  --app-neural-glow: rgba(107, 114, 128, 0.15) !important;
+  --neural-impulse-glow: rgba(79, 70, 229, 0.8) !important;
+  --neural-impulse-core: rgba(129, 119, 255, 0.9) !important;
 }
+
+/* NEUTRO ELEGANTE PALETTE */
+html[data-palette="neutro-elegante"] {
+  --app-bg-primary: #e5e7eb !important;
+  --app-bg-secondary: #f3f4f6 !important;
+  --app-surface: #f3f4f6 !important;
+  --app-surface-secondary: #e5e7eb !important;
+  --app-surface-accent: #9ca3af !important;
+  --app-shadow-dark: rgba(17, 24, 39, 0.12) !important;
+  --app-shadow-light: rgba(255, 255, 255, 0.95) !important;
+  --app-text-primary: #111827 !important;
+  --app-text-secondary: #4b5563 !important;
+  --app-button-bg: #1f2937 !important;
+  --app-button-hover: #0f172a !important;
+  --app-accent: #9ca3af !important;
+  --app-neural-node: rgba(31, 41, 55, 0.6) !important;
+  --app-neural-glow: rgba(75, 85, 99, 0.15) !important;
+  --neural-impulse-glow: rgba(31, 41, 55, 0.8) !important;
+  --neural-impulse-core: rgba(107, 114, 128, 0.9) !important;
+}
+
+/* 
+OTROS TEMAS DISPONIBLES - Descomenta para cambiar:
+
+OCEAN DEEP:
+:root {
+  --app-bg-primary: #0f172a;
+  --app-bg-secondary: #1a1f3a;
+  --app-surface: #172554;
+  --app-surface-secondary: #1e3a5f;
+  --app-surface-accent: #0ea5e9;
+  --app-shadow-dark: rgba(0, 0, 0, 0.3);
+  --app-shadow-light: rgba(255, 255, 255, 0.1);
+  --app-text-primary: #f1f5f9;
+  --app-text-secondary: #cbd5e1;
+  --app-button-bg: #0ea5e9;
+  --app-button-hover: #0284c7;
+  --app-accent: #f59e0b;
+  --app-neural-node: rgba(14, 165, 233, 0.6);
+  --app-neural-glow: rgba(14, 165, 233, 0.15);
+}
+
+NEON VIBRANT:
+:root {
+  --app-bg-primary: #0d0221;
+  --app-bg-secondary: #16213e;
+  --app-surface: #1c2c5c;
+  --app-surface-secondary: #2a3e7f;
+  --app-surface-accent: #ff006e;
+  --app-shadow-dark: rgba(0, 0, 0, 0.5);
+  --app-shadow-light: rgba(255, 0, 110, 0.1);
+  --app-text-primary: #f9f9f9;
+  --app-text-secondary: #c0c0c0;
+  --app-button-bg: #ff006e;
+  --app-button-hover: #e80060;
+  --app-accent: #00d9ff;
+  --app-neural-node: rgba(255, 0, 110, 0.6);
+  --app-neural-glow: rgba(255, 0, 110, 0.15);
+}
+
+MINIMALIST LIGHT:
+:root {
+  --app-bg-primary: #fafafa;
+  --app-bg-secondary: #ffffff;
+  --app-surface: #ffffff;
+  --app-surface-secondary: #f5f5f5;
+  --app-surface-accent: #e5e5e5;
+  --app-shadow-dark: rgba(0, 0, 0, 0.08);
+  --app-shadow-light: rgba(255, 255, 255, 1);
+  --app-text-primary: #1a1a1a;
+  --app-text-secondary: #666666;
+  --app-button-bg: #1a1a1a;
+  --app-button-hover: #000000;
+  --app-accent: #3b82f6;
+  --app-neural-node: rgba(26, 26, 26, 0.6);
+  --app-neural-glow: rgba(26, 26, 26, 0.15);
+}
+
+PURPLE GRADIENT:
+:root {
+  --app-bg-primary: #f3e8ff;
+  --app-bg-secondary: #faf5ff;
+  --app-surface: #f5f3ff;
+  --app-surface-secondary: #ede9fe;
+  --app-surface-accent: #e9d5ff;
+  --app-shadow-dark: rgba(88, 28, 135, 0.12);
+  --app-shadow-light: rgba(255, 255, 255, 0.95);
+  --app-text-primary: #581c87;
+  --app-text-secondary: #9333ea;
+  --app-button-bg: #581c87;
+  --app-button-hover: #6b21a8;
+  --app-accent: #d946ef;
+  --app-neural-node: rgba(88, 28, 135, 0.6);
+  --app-neural-glow: rgba(217, 70, 239, 0.15);
+}
+*/
 
 html {
   scroll-behavior: smooth;
@@ -22,8 +144,8 @@ body {
   min-height: 100vh;
   font-family: var(--font-inter), "Inter", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  background: radial-gradient(circle at 10% 20%, #eff3f9 0%, var(--app-bg) 45%, #dfe4ec 100%);
-  color: #111827;
+  background: var(--app-bg-primary);
+  color: var(--app-text-primary);
 }
 
 ::selection {
