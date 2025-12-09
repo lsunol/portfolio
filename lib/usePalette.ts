@@ -2,23 +2,25 @@
 
 import { useEffect, useState } from "react";
 
+const getInitialPalette = () => {
+  if (typeof window === "undefined") return "tech-cold";
+  const params = new URLSearchParams(window.location.search);
+  return params.get("palette") || "tech-cold";
+};
+
 export function usePalette() {
-  const [palette, setPalette] = useState<string>("tech-cold");
+  const [palette] = useState<string>(getInitialPalette);
 
   useEffect(() => {
-    // Get palette from URL query string, only in client
-    const params = new URLSearchParams(window.location.search);
-    const queryPalette = params.get("palette") || "tech-cold";
-    
-    setPalette(queryPalette);
-    console.log("🎨 usePalette - Query palette:", queryPalette);
+    if (typeof document === "undefined") return;
+
+    console.log("🎨 usePalette - Active palette:", palette);
     console.log("🎨 usePalette - Current HTML element:", document.documentElement);
 
-    // Set the data-palette attribute on the root element
-    if (queryPalette === "indigo-salmon") {
+    if (palette === "indigo-salmon") {
       document.documentElement.setAttribute("data-palette", "indigo-salmon");
       console.log("🎨 Applied indigo-salmon palette");
-    } else if (queryPalette === "neutro-elegante") {
+    } else if (palette === "neutro-elegante") {
       document.documentElement.setAttribute("data-palette", "neutro-elegante");
       console.log("🎨 Applied neutro-elegante palette");
     } else {
@@ -26,10 +28,15 @@ export function usePalette() {
       console.log("🎨 Applied tech-cold palette");
     }
 
-    // Log the current attributes
-    console.log("🎨 HTML data-palette:", document.documentElement.getAttribute("data-palette"));
-    console.log("🎨 Computed style bg-primary:", getComputedStyle(document.documentElement).getPropertyValue("--app-bg-primary"));
-  }, []);
+    console.log(
+      "🎨 HTML data-palette:",
+      document.documentElement.getAttribute("data-palette")
+    );
+    console.log(
+      "🎨 Computed style bg-primary:",
+      getComputedStyle(document.documentElement).getPropertyValue("--app-bg-primary")
+    );
+  }, [palette]);
 
   return palette;
 }

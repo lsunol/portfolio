@@ -13,7 +13,7 @@ This document is for bootstrapping any AI/LLM that joins the project. Keep it up
 - Client components for interactive/animated pieces (Framer Motion sections, FloatingChat, ChatMock, NeuralNetwork).
 - Styling primarily via Tailwind utility classes plus custom CSS variables defined in `app/globals.css`.
 - Animated background: `components/NeuralNetwork` uses `particles.js` via dynamic import in `useEffect` to avoid SSR issues.
-- Theming: `components/PaletteProvider` + `lib/usePalette` read query param and set `data-palette` on `<html>`, driving CSS variables.
+- Theming: `components/PaletteProvider` + `lib/usePalette` read query param and set `data-palette` on `<html>`, driving CSS variables. Palettes disponibles: `tech-cold` (default), `indigo-salmon`, `neutro-elegante`.
 
 ## Key Files
 - `app/page.tsx`: main page with hero, stats, about, skills/resume, projects, ask-me, contact sections. Uses Framer Motion for reveal animations.
@@ -32,7 +32,7 @@ This document is for bootstrapping any AI/LLM that joins the project. Keep it up
 
 ## Gotchas
 - Do not import `particles.js` on the server; keep it dynamic in `useEffect`.
-- When reading URL/search params for palette, guard for SSR (no `window` at module scope).
+- When reading URL/search params for palette, guard for SSR (no `window` at module scope). En `usePalette`, inicializa el estado con un initializer que chequea `typeof window !== 'undefined'` y evita llamar a `setState` dentro del `useEffect`; el efecto solo aplica `data-palette` al `<html>`.
 - If modifying hero spacing, remember the header is outside normal flow; account for its height when centering content.
 - The palette CSS uses `!important` in some variables to ensure overrides; keep consistency when adding new palettes.
 
