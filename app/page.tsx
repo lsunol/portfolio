@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { ChatMock } from "@/components/ChatMock";
 import { FloatingChat } from "@/components/FloatingChat";
 import { Header } from "@/components/Header";
@@ -84,27 +85,57 @@ const askMeMessages = [
 ];
 
 export default function Home() {
+  const [headerHeight, setHeaderHeight] = useState<number>(0);
+
+  useEffect(() => {
+    const calculateHeaderHeight = () => {
+      const header = document.querySelector("header");
+      
+      if (!header) {
+        console.log("📊 Header no encontrado");
+        return;
+      }
+
+      const height = header.offsetHeight;
+      setHeaderHeight(height);
+      
+      console.log(`📊 Header height detected: ${height}px`);
+    };
+
+    // Calcular en el primer render
+    calculateHeaderHeight();
+    
+    // Recalcular en resize (para responsiveness)
+    window.addEventListener("resize", calculateHeaderHeight);
+    
+    return () => {
+      window.removeEventListener("resize", calculateHeaderHeight);
+    };
+  }, []);
+
   return (
-    <div className="relative overflow-hidden pb-24">
+    <div className="relative flex min-h-screen flex-col overflow-hidden pb-24">
       <NeuralNetwork />
       <Header />
-      <main className="mx-auto flex min-h-screen w-full max-w-5xl flex-col gap-24 px-4 pt-32 sm:px-6 lg:px-0">
+      <main className="mx-auto flex w-full max-w-5xl flex-col gap-24 px-4 sm:px-6 lg:px-0">
         <motion.section
           id="hero"
           variants={sectionVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
-          className="flex min-h-screen flex-col justify-center gap-10"
+          style={{ 
+            minHeight: `calc(100vh - ${headerHeight}px)`
+          }}
+          className="flex flex-col justify-center gap-10"
         >
           <div className="neumorphic-surface rounded-[2.5rem] p-8 shadow-[20px_20px_45px_rgba(163,177,198,0.45),-20px_-20px_45px_rgba(255,255,255,0.9)]">
-            <p className="text-sm font-semibold uppercase tracking-[0.5em] text-slate-500">Product Engineer</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.5em] text-slate-500">Software Engineer · AI / Machine Learning</p>
             <h1 className="mt-6 text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl">
               Lluís Suñol
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-slate-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer bibendum dui
-              feugiat, Duis aute irure dolor in reprehenderit velit esse cillum dolore eu fugiat nulla pariatur.
+              I bring 20 years of experience building scalable software systems, now focused on applying Deep Learning, LLMs and modern ML techniques to real-world problems. I combine strong backend engineering fundamentals with hands-on work in Stable Diffusion, LoRA training, CNNs and AI-driven pipelines.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               {[
@@ -124,9 +155,9 @@ export default function Home() {
           </div>
           <div className="grid gap-6 sm:grid-cols-3">
             {[
-              { title: "12+", subtitle: "Años construyendo" },
-              { title: "40", subtitle: "Productos lanzados" },
-              { title: "∞", subtitle: "Ideas en backlog" },
+              { title: "20+", subtitle: "Years building software" },
+              { title: "3", subtitle: "Postgraduates this year" },
+              { title: "2", subtitle: "AI projects Casalimpia · Atlas" },
             ].map((item) => (
               <div key={item.subtitle} className="neumorphic-surface rounded-2xl p-6 text-center">
                 <p className="text-3xl font-semibold text-slate-900">{item.title}</p>

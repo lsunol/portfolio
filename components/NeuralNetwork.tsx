@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useId } from "react";
-import "particles.js";
 
 declare global {
   interface Window {
@@ -58,19 +57,26 @@ export function NeuralNetwork({ className = "absolute inset-0 -z-10" }: NeuralNe
   const domId = `particles-${reactId.replace(/[^a-zA-Z0-9-_]/g, "")}`;
 
   useEffect(() => {
-    if (typeof window === "undefined" || !window.particlesJS) {
+    if (typeof window === "undefined") {
       return;
     }
 
-    window.particlesJS(domId, particleConfig);
+    // Dynamically import particles.js only on client
+    import("particles.js").then(() => {
+      if (!window.particlesJS) {
+        return;
+      }
 
-    return () => {
-      window.pJSDom?.forEach((instance) => {
-        if (instance.pJS?.canvas?.el?.id === domId) {
-          instance.destroy();
-        }
-      });
-    };
+      window.particlesJS(domId, particleConfig);
+
+      return () => {
+        window.pJSDom?.forEach((instance) => {
+          if (instance.pJS?.canvas?.el?.id === domId) {
+            instance.destroy();
+          }
+        });
+      };
+    });
   }, [domId]);
 
   return (
