@@ -84,6 +84,9 @@ const askMeMessages = [
   { sender: "User" as const, text: "Perfecto, agendemos una llamada." },
 ];
 
+// Background mode toggle: set to "particles" to enable the animated background, "none" to disable for perf.
+const backgroundMode: "particles" | "none" = "none";
+
 export default function Home() {
   const heroRef = useRef<HTMLElement | null>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -110,7 +113,7 @@ export default function Home() {
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden pb-24">
-      <NeuralNetwork />
+      {backgroundMode === "particles" ? <NeuralNetwork /> : null}
       <Header />
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-24 px-4 pt-20 sm:px-6 sm:pt-24 lg:px-0">
         <motion.section
