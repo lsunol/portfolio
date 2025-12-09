@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChatMock } from "@/components/ChatMock";
 import { FloatingChat } from "@/components/FloatingChat";
 import { Header } from "@/components/Header";
@@ -85,49 +85,45 @@ const askMeMessages = [
 ];
 
 export default function Home() {
-  const [headerHeight, setHeaderHeight] = useState<number>(0);
+  const heroRef = useRef<HTMLElement | null>(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const [shouldCenterHero, setShouldCenterHero] = useState(false);
 
   useEffect(() => {
-    const calculateHeaderHeight = () => {
-      const header = document.querySelector("header");
-      
-      if (!header) {
-        console.log("📊 Header no encontrado");
-        return;
-      }
+    const measure = () => {
+      const headerEl = document.querySelector("header");
+      const measuredHeader = headerEl ? headerEl.getBoundingClientRect().height : 0;
+      setHeaderHeight(measuredHeader);
 
-      const height = header.offsetHeight;
-      setHeaderHeight(height);
-      
-      console.log(`📊 Header height detected: ${height}px`);
+      const heroEl = heroRef.current;
+      if (!heroEl) return;
+
+      const contentHeight = heroEl.scrollHeight;
+      const available = window.innerHeight - measuredHeader - 48; // keep small breathing room
+      setShouldCenterHero(contentHeight <= available);
     };
 
-    // Calcular en el primer render
-    calculateHeaderHeight();
-    
-    // Recalcular en resize (para responsiveness)
-    window.addEventListener("resize", calculateHeaderHeight);
-    
-    return () => {
-      window.removeEventListener("resize", calculateHeaderHeight);
-    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
   }, []);
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden pb-24">
       <NeuralNetwork />
       <Header />
-      <main className="mx-auto flex w-full max-w-5xl flex-col gap-24 px-4 sm:px-6 lg:px-0">
+      <main className="mx-auto flex w-full max-w-5xl flex-col gap-24 px-4 pt-20 sm:px-6 sm:pt-24 lg:px-0">
         <motion.section
           id="hero"
           variants={sectionVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
-          style={{ 
-            minHeight: `calc(100vh - ${headerHeight}px)`
-          }}
-          className="flex flex-col justify-center gap-10"
+          ref={heroRef}
+          style={shouldCenterHero ? { minHeight: `calc(100vh - ${headerHeight}px -48px)` } : undefined}
+          className={`flex flex-col gap-10 ${
+            shouldCenterHero ? "justify-center py-12 sm:py-16" : "pt-10 pb-14 sm:pt-12 sm:pb-16"
+          }`}
         >
           <div className="neumorphic-surface rounded-[2.5rem] p-8 shadow-[20px_20px_45px_rgba(163,177,198,0.45),-20px_-20px_45px_rgba(255,255,255,0.9)]">
             <p className="text-sm font-semibold uppercase tracking-[0.5em] text-slate-500">Software Engineer · AI / Machine Learning</p>
