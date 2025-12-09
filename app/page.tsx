@@ -123,8 +123,8 @@ export default function Home() {
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
           ref={heroRef}
-          style={shouldCenterHero ? { minHeight: `calc(100vh - ${headerHeight}px -48px)` } : undefined}
-          className={`flex flex-col gap-10 ${
+          style={shouldCenterHero ? { minHeight: `calc(100vh - ${headerHeight}px - 48px)` } : undefined}
+          className={`flex flex-col gap-10 scroll-mt-28 sm:scroll-mt-32 ${
             shouldCenterHero ? "justify-center py-12 sm:py-16" : "pt-10 pb-14 sm:pt-12 sm:pb-16"
           }`}
         >
@@ -172,7 +172,7 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="space-y-8"
+          className="space-y-8 scroll-mt-28 sm:scroll-mt-32"
         >
           <SectionTitle
             eyebrow="About"
@@ -199,7 +199,7 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="space-y-10"
+          className="space-y-10 scroll-mt-28 sm:scroll-mt-32"
         >
           <SectionTitle
             eyebrow="Skills & Resume"
@@ -246,7 +246,7 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="space-y-10"
+          className="space-y-10 scroll-mt-28 sm:scroll-mt-32"
         >
           <SectionTitle
             eyebrow="Projects"
@@ -266,7 +266,7 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="space-y-8"
+          className="space-y-8 scroll-mt-28 sm:scroll-mt-32"
         >
           <SectionTitle
             eyebrow="Ask Me"
@@ -294,7 +294,7 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="space-y-8"
+          className="space-y-8 scroll-mt-28 sm:scroll-mt-32"
         >
           <SectionTitle
             eyebrow="Contact"
