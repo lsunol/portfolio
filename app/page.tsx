@@ -120,52 +120,118 @@ export default function Home() {
           id="hero"
           variants={sectionVariants}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
-          ref={heroRef}
-          style={shouldCenterHero ? { minHeight: `calc(100vh - ${headerHeight}px - 48px)` } : undefined}
-          className={`flex flex-col gap-10 scroll-mt-28 sm:scroll-mt-32 ${
-            shouldCenterHero ? "justify-center py-12 sm:py-16" : "pt-10 pb-14 sm:pt-12 sm:pb-16"
-          }`}
-        >
-          <div className="neumorphic-surface rounded-[2.5rem] p-8 shadow-[20px_20px_45px_rgba(163,177,198,0.45),-20px_-20px_45px_rgba(255,255,255,0.9)]">
-            <p className="text-sm font-semibold uppercase tracking-[0.5em] text-slate-500">Software Engineer · AI / Machine Learning</p>
-            <h1 className="mt-6 text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl">
-              Lluís Suñol
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-slate-600">
-              I bring 20 years of experience building scalable software systems, now focused on applying Deep Learning, LLMs and modern ML techniques to real-world problems. I combine strong backend engineering fundamentals with hands-on work in Stable Diffusion, LoRA training, CNNs and AI-driven pipelines.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              {[
-                "View Projects",
-                "Download Resume",
-                "Ask Me",
-              ].map((label) => (
-                <button
-                  key={label}
-                  type="button"
-                  className="rounded-full border border-transparent bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition hover:-translate-y-0.5"
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {[
-              { title: "20+", subtitle: "Years building software" },
-              { title: "3", subtitle: "Postgraduates this year" },
-              { title: "2", subtitle: "AI projects Casalimpia · Atlas" },
-            ].map((item) => (
-              <div key={item.subtitle} className="neumorphic-surface rounded-2xl p-6 text-center">
-                <p className="text-3xl font-semibold text-slate-900">{item.title}</p>
-                <p className="text-sm uppercase tracking-[0.4em] text-slate-500">{item.subtitle}</p>
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="space-y-10 scroll-mt-28 sm:scroll-mt-32"
+          >
+            <SectionTitle
+              eyebrow="Skills & Resume"
+              title="A blend of 20+ years of software engineering and hands-on AI experimentation."
+              description=""
+            />
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div className="neumorphic-surface rounded-3xl p-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-4">SOFTWARE ENGINEERING</p>
+                  <ul className="space-y-2 text-sm text-slate-600 list-disc list-inside">
+                    <li>Java / Spring Boot / Hibernate</li>
+                    <li>Python</li>
+                    <li>JavaScript / Node.js</li>
+                    <li>SQL / NoSQL</li>
+                    <li>Spring</li>
+                  </ul>
+                </div>
+                <div className="neumorphic-surface rounded-3xl p-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-4">DEVOPS & INFRA</p>
+                  <ul className="space-y-2 text-sm text-slate-600 list-disc list-inside">
+                    <li>Docker & containerization</li>
+                    <li>Kubernetes</li>
+                    <li>Linux & servers</li>
+                    <li>automation scripts</li>
+                    <li>Performance & scaling</li>
+                  </ul>
+                </div>
+                <div className="neumorphic-surface rounded-3xl p-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-4">ARTIFICIAL INTELLIGENCE</p>
+                  <ul className="space-y-2 text-sm text-slate-600 list-disc list-inside">
+                    <li>Deep Learning (PyTorch)</li>
+                    <li>Stable Diffusion & LoRA</li>
+                    <li>Computer Vision</li>
+                    <li>LLMs & RAG</li>
+                    <li>Model evaluation</li>
+                  </ul>
+                </div>
+                <div className="neumorphic-surface rounded-3xl p-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-4">TOOLS & OTHER SKILLS</p>
+                  <ul className="space-y-2 text-sm text-slate-600 list-disc list-inside">
+                    <li>Git</li>
+                    <li>FastAPI</li>
+                    <li>Quantum basics</li>
+                    <li>Agile / Scrum</li>
+                    <li>Financial knowledge</li>
+                  </ul>
+                </div>
               </div>
-            ))}
-          </div>
-        </motion.section>
-
+              <div className="neumorphic-surface rounded-3xl p-6">
+                <div className="space-y-8 border-l border-white/70 pl-6 relative">
+                  <TimelineItem
+                    period="2018 — 2024"
+                    title="Senior Software Engineer"
+                    subtitle="Sabadell Consumer Finance / Instant Credit"
+                    description={<ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+                      <li>Core developer of the main loan origination platform.</li>
+                      <li>Backend, sharding, performance, AngularJS back-office.</li>
+                      <li>Led Docker containerization for frontend and back-office systems.</li>
+                    </ul>}
+                  />
+                  <TimelineItem
+                    period="2013 — 2018"
+                    title="Software Engineer"
+                    subtitle="Agile Content"
+                    description={<ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+                      <li>Built Agile CMS and Agile Media Player (ads, analytics, customizable skins).</li>
+                      <li>Spring Boot microservices (translator, redirect).</li>
+                      <li>DB performance (Oracle/MySQL).</li>
+                    </ul>}
+                  />
+                  <TimelineItem
+                    period="2010 — 2013"
+                    title="Software Engineer"
+                    subtitle="VASS"
+                    description={<ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+                      <li>Developed platforms for La Caixa, Generalitat, Ajuntament de Barcelona.</li>
+                      <li>CMS (OpenCMS), Java stack, front-end integrations.</li>
+                    </ul>}
+                  />
+                  <TimelineItem
+                    period="2008 — 2010"
+                    title="Embedded/Systems Engineer"
+                    subtitle="HP"
+                    description={<ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+                      <li>Fleet Control Tool (C++, SNMP, Telnet/SSH).</li>
+                      <li>Java solutions embedded in printers.</li>
+                    </ul>}
+                  />
+                  <TimelineItem
+                    period="2006 — 2008"
+                    title="Software Developer"
+                    subtitle="LCFIB"
+                    description={<ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+                      <li>Projects for Generalitat: SAGA, e-Catalunya wiki engine.</li>
+                      <li>Java, Hibernate, SQL, Velocity.</li>
+                    </ul>}
+                  />
+                </div>
+                <button
+                  type="button"
+                  className="mt-8 w-full rounded-full border border-transparent bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white"
+                  onClick={() => window.open('/resume/lluis-sunol-resume.pdf', '_blank')}
+                >
+                  Download Resume (PDF)
+                </button>
+              </div>
+            </div>
+          </motion.section>
         <motion.section
           id="about"
           variants={sectionVariants}
