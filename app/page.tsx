@@ -59,22 +59,61 @@ const skillGroups = [
 
 const experiences = [
   {
-    period: "2023 — HOY",
-    title: "Lead Frontend",
-    subtitle: "Studio Lorem",
-    description: "Dirijo la experiencia web end-to-end para productos SaaS con usuarios globales.",
+    period: "2018 — 2024",
+    title: "Senior Software Engineer",
+    subtitle: "Sabadell Consumer Finance / Instant Credit",
+    description: (
+      <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+        <li>Core developer of the main loan origination platform.</li>
+        <li>Backend, sharding, performance, AngularJS back-office.</li>
+        <li>Led Docker containerization for frontend and back-office systems.</li>
+      </ul>
+    ),
   },
   {
-    period: "2021 — 2023",
-    title: "Senior Product Engineer",
-    subtitle: "Acme Labs",
-    description: "Construí sistemas de diseño y microfrontends orquestados con App Router.",
+    period: "2013 — 2018",
+    title: "Software Engineer",
+    subtitle: "Agile Content",
+    description: (
+      <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+        <li>Built Agile CMS and Agile Media Player (ads, analytics, customizable skins).</li>
+        <li>Spring Boot microservices (translator, redirect).</li>
+        <li>DB performance (Oracle/MySQL).</li>
+      </ul>
+    ),
   },
   {
-    period: "2019 — 2021",
-    title: "Frontend Specialist",
-    subtitle: "Freelance",
-    description: "Consultorías para startups enfocadas en growth, rendimiento y accesibilidad.",
+    period: "2010 — 2013",
+    title: "Software Engineer",
+    subtitle: "VASS",
+    description: (
+      <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+        <li>Developed platforms for La Caixa, Generalitat, Ajuntament de Barcelona.</li>
+        <li>CMS (OpenCMS), Java stack, front-end integrations.</li>
+      </ul>
+    ),
+  },
+  {
+    period: "2008 — 2010",
+    title: "Embedded/Systems Engineer",
+    subtitle: "HP",
+    description: (
+      <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+        <li>Fleet Control Tool (C++, SNMP, Telnet/SSH).</li>
+        <li>Java solutions embedded in printers.</li>
+      </ul>
+    ),
+  },
+  {
+    period: "2006 — 2008",
+    title: "Software Developer",
+    subtitle: "LCFIB",
+    description: (
+      <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+        <li>Projects for Generalitat: SAGA, e-Catalunya wiki engine.</li>
+        <li>Java, Hibernate, SQL, Velocity.</li>
+      </ul>
+    ),
   },
 ];
 
@@ -118,120 +157,42 @@ export default function Home() {
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-24 px-4 pt-20 sm:px-6 sm:pt-24 lg:px-0">
         <motion.section
           id="hero"
+          ref={heroRef}
           variants={sectionVariants}
           initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="space-y-10 scroll-mt-28 sm:scroll-mt-32"
-          >
-            <SectionTitle
-              eyebrow="Skills & Resume"
-              title="A blend of 20+ years of software engineering and hands-on AI experimentation."
-              description=""
-            />
-            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="neumorphic-surface rounded-3xl p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-4">SOFTWARE ENGINEERING</p>
-                  <ul className="space-y-2 text-sm text-slate-600 list-disc list-inside">
-                    <li>Java / Spring Boot / Hibernate</li>
-                    <li>Python</li>
-                    <li>JavaScript / Node.js</li>
-                    <li>SQL / NoSQL</li>
-                    <li>Spring</li>
-                  </ul>
-                </div>
-                <div className="neumorphic-surface rounded-3xl p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-4">DEVOPS & INFRA</p>
-                  <ul className="space-y-2 text-sm text-slate-600 list-disc list-inside">
-                    <li>Docker & containerization</li>
-                    <li>Kubernetes</li>
-                    <li>Linux & servers</li>
-                    <li>automation scripts</li>
-                    <li>Performance & scaling</li>
-                  </ul>
-                </div>
-                <div className="neumorphic-surface rounded-3xl p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-4">ARTIFICIAL INTELLIGENCE</p>
-                  <ul className="space-y-2 text-sm text-slate-600 list-disc list-inside">
-                    <li>Deep Learning (PyTorch)</li>
-                    <li>Stable Diffusion & LoRA</li>
-                    <li>Computer Vision</li>
-                    <li>LLMs & RAG</li>
-                    <li>Model evaluation</li>
-                  </ul>
-                </div>
-                <div className="neumorphic-surface rounded-3xl p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-4">TOOLS & OTHER SKILLS</p>
-                  <ul className="space-y-2 text-sm text-slate-600 list-disc list-inside">
-                    <li>Git</li>
-                    <li>FastAPI</li>
-                    <li>Quantum basics</li>
-                    <li>Agile / Scrum</li>
-                    <li>Financial knowledge</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="neumorphic-surface rounded-3xl p-6">
-                <div className="space-y-8 border-l border-white/70 pl-6 relative">
-                  <TimelineItem
-                    period="2018 — 2024"
-                    title="Senior Software Engineer"
-                    subtitle="Sabadell Consumer Finance / Instant Credit"
-                    description={<ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
-                      <li>Core developer of the main loan origination platform.</li>
-                      <li>Backend, sharding, performance, AngularJS back-office.</li>
-                      <li>Led Docker containerization for frontend and back-office systems.</li>
-                    </ul>}
-                  />
-                  <TimelineItem
-                    period="2013 — 2018"
-                    title="Software Engineer"
-                    subtitle="Agile Content"
-                    description={<ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
-                      <li>Built Agile CMS and Agile Media Player (ads, analytics, customizable skins).</li>
-                      <li>Spring Boot microservices (translator, redirect).</li>
-                      <li>DB performance (Oracle/MySQL).</li>
-                    </ul>}
-                  />
-                  <TimelineItem
-                    period="2010 — 2013"
-                    title="Software Engineer"
-                    subtitle="VASS"
-                    description={<ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
-                      <li>Developed platforms for La Caixa, Generalitat, Ajuntament de Barcelona.</li>
-                      <li>CMS (OpenCMS), Java stack, front-end integrations.</li>
-                    </ul>}
-                  />
-                  <TimelineItem
-                    period="2008 — 2010"
-                    title="Embedded/Systems Engineer"
-                    subtitle="HP"
-                    description={<ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
-                      <li>Fleet Control Tool (C++, SNMP, Telnet/SSH).</li>
-                      <li>Java solutions embedded in printers.</li>
-                    </ul>}
-                  />
-                  <TimelineItem
-                    period="2006 — 2008"
-                    title="Software Developer"
-                    subtitle="LCFIB"
-                    description={<ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
-                      <li>Projects for Generalitat: SAGA, e-Catalunya wiki engine.</li>
-                      <li>Java, Hibernate, SQL, Velocity.</li>
-                    </ul>}
-                  />
-                </div>
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className={`flex flex-col gap-10 scroll-mt-28 sm:scroll-mt-32 ${shouldCenterHero ? "justify-center" : ""}`}
+        >
+          <div className="neumorphic-surface rounded-[2.5rem] p-8 shadow-[20px_20px_45px_rgba(163,177,198,0.45),-20px_-20px_45px_rgba(255,255,255,0.9)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.5em] text-slate-500">Software Engineer · AI / Machine Learning</p>
+            <h1 className="mt-6 text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl">
+              Lluís Suñol
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg text-slate-600">
+              I bring 20 years of experience building scalable software systems, now focused on applying Deep Learning, LLMs and modern ML techniques to real-world problems. I combine strong backend engineering fundamentals with hands-on work in Stable Diffusion, LoRA training, CNNs and AI-driven pipelines.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              {["View Projects", "Download Resume", "Ask Me"].map((label) => (
                 <button
+                  key={label}
                   type="button"
-                  className="mt-8 w-full rounded-full border border-transparent bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white"
-                  onClick={() => window.open('/resume/lluis-sunol-resume.pdf', '_blank')}
+                  className="rounded-full border border-transparent bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition hover:-translate-y-0.5"
                 >
-                  Download Resume (PDF)
+                  {label}
                 </button>
-              </div>
+              ))}
             </div>
-          </motion.section>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-3">
+            {[{ title: "20+", subtitle: "Years building software" }, { title: "3", subtitle: "Postgraduates this year" }, { title: "2", subtitle: "AI projects Casalimpia · Atlas" }].map((item) => (
+              <div key={item.subtitle} className="neumorphic-surface rounded-2xl p-6 text-center">
+                <p className="text-3xl font-semibold text-slate-900">{item.title}</p>
+                <p className="text-sm uppercase tracking-[0.4em] text-slate-500">{item.subtitle}</p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
         <motion.section
           id="about"
           variants={sectionVariants}
@@ -272,26 +233,127 @@ projects in deep learning, computer vision and LLM-based assistants.`}
         >
           <SectionTitle
             eyebrow="Skills & Resume"
-            title="Stack moderno de punta a punta"
-            description="Lorem ipsum dolor sit amet consectetur adipiscing elit penatibus lectus ornare id."
+            title="A blend of 20+ years of software engineering and hands-on AI experimentation."
+            description=""
           />
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="grid gap-6 sm:grid-cols-2">
-              {skillGroups.map((group) => (
-                <div key={group.title} className="neumorphic-surface rounded-3xl p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
-                    {group.title}
-                  </p>
-                  <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                    {group.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+            <div className="grid gap-6 grid-cols-1 items-start">
+              <div className="neumorphic-surface rounded-3xl p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-6">SOFTWARE ENGINEERING</p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Java / Spring</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '97%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Python</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '86%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">JavaScript</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '81%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">SQL / NoSQL</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '75%' }}></div>
+                    </div>
+                  </div>
                 </div>
-              ))}
+              </div>
+              <div className="neumorphic-surface rounded-3xl p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-6">DEVOPS & INFRA</p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Docker</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '93%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Kubernetes</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '62%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Linux</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '98%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Automation</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '71%' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="neumorphic-surface rounded-3xl p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-6">ARTIFICIAL INTELLIGENCE</p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">PyTorch</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '84%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Stable Diffusion</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '80%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Computer Vision</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '73%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">LLMs & RAG</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '82%' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="neumorphic-surface rounded-3xl p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500 mb-6">TOOLS & OTHER SKILLS</p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Git</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '92%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">FastAPI</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '79%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Agile / Scrum</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '87%' }}></div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-32 text-sm font-medium text-slate-700">Finance</div>
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-800 rounded-full" style={{ width: '78%' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="neumorphic-surface rounded-3xl p-6">
               <div className="space-y-8 border-l border-white/70 pl-6">
@@ -302,6 +364,7 @@ projects in deep learning, computer vision and LLM-based assistants.`}
               <button
                 type="button"
                 className="mt-8 w-full rounded-full border border-transparent bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white"
+                onClick={() => window.open('/resume/lluis-sunol-resume.pdf', '_blank')}
               >
                 Download Resume (PDF)
               </button>
