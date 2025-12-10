@@ -176,18 +176,21 @@ export default function Home() {
         >
           <SectionTitle
             eyebrow="About"
-            title="Creo productos digitales con intención"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet, enim sed ultricies scelerisque, lorem neque mollis urna, et dapibus elit justo sed mauris."
+            title="Turning engineering experience into applied AI"
+            description={`I'm Lluís, a Senior Software Engineer who spent two decades building reliable,
+scalable and purposeful products. Recently, I’ve transitioned into Artificial Intelligence,
+completing three postgraduate programs at UPC School and developing hands-on
+projects in deep learning, computer vision and LLM-based assistants.`}
           />
           <div className="grid gap-6 md:grid-cols-2">
-            <p className="text-base text-slate-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer bibendum dui feugiat purus
-              sagittis, non gravida urna dictum. Cras fringilla feugiat tellus, quis facilisis nulla egestas id.
+            <p className="text-lg text-slate-600">
+              I love understanding how things work under the hood and turning that knowledge into
+              practical, well-engineered solutions. I enjoy the balance between solid engineering,
+              model experimentation and the challenge of making ideas actually work.
             </p>
-            <div className="neumorphic-surface rounded-3xl p-6 text-slate-600">
-              <p>
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed
-                sed augue a sapien facilisis egestas in egestas erat.
+            <div className="neumorphic-surface rounded-3xl p-6 text-slate-600 flex items-center justify-center">
+              <p className="italic font-semibold text-center leading-relaxed">
+                I believe in building things that truly work. I'm motivated by learning, iterating, and bringing ideas into production.
               </p>
             </div>
           </div>
