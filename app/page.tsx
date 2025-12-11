@@ -60,58 +60,57 @@ const skillGroups = [
 const experiences = [
   {
     period: "2018 — 2024",
-    title: "Senior Software Engineer",
-    subtitle: "Sabadell Consumer Finance / Instant Credit",
+    title: "Sabadell Consumer Finance / Instant Credit",
+    subtitle: "Software Engineer",
     description: (
-      <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
-        <li>Core developer of the main loan origination platform.</li>
-        <li>Backend, sharding, performance, AngularJS back-office.</li>
-        <li>Led Docker containerization for frontend and back-office systems.</li>
+      <ul className="mt-2 space-y-2 text-sm text-slate-600 list-none">
+        <li>Core contributor to the loan origination platform.</li>
+        <li>Led Docker containerization across frontend and back-office systems.</li>
+        <li>Backend development, database sharding and AngularJS back-office.</li>
       </ul>
     ),
   },
   {
     period: "2013 — 2018",
-    title: "Software Engineer",
-    subtitle: "Agile Content",
+    title: "Agile Content",
+    subtitle: "Software Engineer",
     description: (
-      <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
+      <ul className="mt-2 space-y-2 text-sm text-slate-600 list-none">
         <li>Built Agile CMS and Agile Media Player (ads, analytics, customizable skins).</li>
-        <li>Spring Boot microservices (translator, redirect).</li>
-        <li>DB performance (Oracle/MySQL).</li>
+        <li>Developed Spring Boot microservices (translator, redirect) and improved DB performance.</li>
       </ul>
     ),
   },
   {
     period: "2010 — 2013",
-    title: "Software Engineer",
-    subtitle: "VASS",
+    title: "VASS",
+    subtitle: "Software Engineer",
     description: (
-      <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
-        <li>Developed platforms for La Caixa, Generalitat, Ajuntament de Barcelona.</li>
-        <li>CMS (OpenCMS), Java stack, front-end integrations.</li>
+      <ul className="mt-2 space-y-2 text-sm text-slate-600 list-none">
+        <li>Developed platforms for La Caixa, Generalitat de Catalunya and Ajuntament de Barcelona.</li>
+        <li>Worked with OpenCMS, Java stack and front-end integrations.</li>
       </ul>
     ),
   },
   {
     period: "2008 — 2010",
-    title: "Embedded/Systems Engineer",
-    subtitle: "HP",
+    title: "HP",
+    subtitle: "Embedded / Systems Engineer",
     description: (
-      <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
-        <li>Fleet Control Tool (C++, SNMP, Telnet/SSH).</li>
-        <li>Java solutions embedded in printers.</li>
+      <ul className="mt-2 space-y-2 text-sm text-slate-600 list-none">
+        <li>Developed the HP Fleet Control Tool (C++, SNMP, Telnet/SSH).</li>
+        <li>Built Java-based solutions embedded in printers.</li>
       </ul>
     ),
   },
   {
     period: "2006 — 2008",
-    title: "Software Developer",
-    subtitle: "LCFIB",
+    title: "LCFIB (UPC)",
+    subtitle: "Software Developer",
     description: (
-      <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside">
-        <li>Projects for Generalitat: SAGA, e-Catalunya wiki engine.</li>
-        <li>Java, Hibernate, SQL, Velocity.</li>
+      <ul className="mt-2 space-y-2 text-sm text-slate-600 list-none">
+        <li>Developed SAGA and e-Catalunya (wiki engine) for Generalitat de Catalunya.</li>
+        <li>Java, Hibernate, SQL and Velocity.</li>
       </ul>
     ),
   },
@@ -356,9 +355,9 @@ projects in deep learning, computer vision and LLM-based assistants.`}
               </div>
             </div>
             <div className="neumorphic-surface rounded-3xl p-6">
-              <div className="space-y-8 border-l border-white/70 pl-6">
-                {experiences.map((item) => (
-                  <TimelineItem key={item.period} {...item} />
+              <div className="pl-2">
+                {experiences.map((item, index) => (
+                  <TimelineItem key={item.period} {...item} isLast={index === experiences.length - 1} />
                 ))}
               </div>
               <button
