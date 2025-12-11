@@ -9,6 +9,7 @@ import { NeuralNetwork } from "@/components/NeuralNetwork";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionTitle } from "@/components/SectionTitle";
 import { TimelineItem } from "@/components/TimelineItem";
+import { DownloadResumeButton } from "@/components/DownloadResumeButton";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -360,13 +361,9 @@ projects in deep learning, computer vision and LLM-based assistants.`}
                   <TimelineItem key={item.period} {...item} isLast={index === experiences.length - 1} />
                 ))}
               </div>
-              <button
-                type="button"
-                className="mt-8 w-full rounded-full border border-transparent bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white"
-                onClick={() => window.open('/resume/lluis-sunol-resume.pdf', '_blank')}
-              >
-                Download Resume (PDF)
-              </button>
+              <div>
+                <DownloadResumeButton />
+              </div>
             </div>
           </div>
         </motion.section>
