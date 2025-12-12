@@ -18,24 +18,33 @@ const sectionVariants = {
 
 const projects = [
   {
-    title: "Lumen Insights",
-    description: "Aplicación analítica lorem ipsum dolor sit amet consectetur adipiscing elit.",
-    tags: ["Next.js", "Tailwind", "Supabase"],
+    title: "Casalimpia - Inpaint Stable Diffusion + LoRA",
+    description: "AI pipeline for removing objects from indoor real-estate images using Stable Diffusion, LoRA fine-tuning and background/foreground segmentation. Includes evaluation with PSNR, SSIM, LPIPS and FID.",
+    tags: ["Stable Diffusion", "LoRA", "Computer Vision", "Model Evaluation"],
+    image: "/images/casalimpia-preview.jpg",
+    githubUrl: "https://github.com/lsunol/casalimpia/",
   },
   {
-    title: "Northwind Ops",
-    description: "Panel administrativo lorem ipsum fermentum gravida porta fermentum pellentesque.",
-    tags: ["React", "TypeScript", "Framer Motion"],
+    title: "AI Background Remover - Hugging Face",
+    description: "Lightweight background-removal tool powered by Hugging Face models and deployed as a simple web application. Designed for speed, simplicity and self-hosting.",
+    tags: ["Hugging Face", "Segmentation", "Web Deployment", "Inference"],
+    image: "/images/aibgremover-preview.png",
+    githubUrl: "https://github.com/lsunol/background-remover-ai",
+    demoUrl: "https://aibgremover.lluissunol.duckdns.org/",
   },
   {
-    title: "Atlas Studio",
-    description: "Herramienta creativa lorem ipsum ultricies habitasse platea dictumst.",
-    tags: ["Design Systems", "Storybook", "REST"],
+    title: "ATLAS - AI for Transport & Logistics",
+    description: "Machine learning system to predict load feasibility, weight and profitability for transport operators using XGBoost models and optimization heuristics. Includes full pipeline and a working demo.",
+    tags: ["Machine Learning", "XGBoost", "Optimization"],
+    image: "/images/atlas-preview-3.png",
+    githubUrl: "https://github.com/lsunol/atlas",
+    demoUrl: "https://atlasproject.duckdns.org/",
   },
   {
-    title: "Pulse Mobile",
-    description: "Experiencia móvil lorem ipsum feugiat mi eget mauris pharetra et ultrices.",
-    tags: ["React Native", "Expo", "CI/CD"],
+    title: "Transmitting a Qubit - Quantum Engineering",
+    description: "Hands-on implementation of qubit state preparation, transmission and measurement using Qiskit. Explores Bloch sphere representation, quantum circuits and noise impact on fidelity.",
+    tags: ["Qiskit", "Quantum Circuits", "Noise Simulation", "Measurement"],
+    githubUrl: "https://github.com/lsunol/transmitingaqubit",
   },
 ];
 
@@ -378,8 +387,8 @@ projects in deep learning, computer vision and LLM-based assistants.`}
         >
           <SectionTitle
             eyebrow="Projects"
-            title="Selección de trabajos recientes"
-            description="Todo el contenido es lorem ipsum por ahora, pero la estructura lista para conectar CMS."
+            title="Selected Projects"
+            description="A collection of recent AI-driven projects exploring Deep Learning, Generative Models and applied engineering."
           />
           <div className="grid gap-8 md:grid-cols-2">
             {projects.map((project) => (
