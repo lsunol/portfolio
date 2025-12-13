@@ -35,10 +35,16 @@ const projects = [
   {
     title: "ATLAS - AI for Transport & Logistics",
     description: "Machine learning system to predict load feasibility, weight and profitability for transport operators using XGBoost models and optimization heuristics. Includes full pipeline and a working demo.",
-    tags: ["Machine Learning", "XGBoost", "Optimization"],
+    tags: ["Machine Learning", "XGBoost", "Optimization", "FastAPI"],
     image: "/images/atlas-preview-3.png",
     githubUrl: "https://github.com/lsunol/atlas",
     demoUrl: "https://atlasproject.duckdns.org/",
+  },
+  {
+    title: "LLM Assistant — RAG-based Chatbot (Self-Hosted)",
+    description: "Self-hosted LLM assistant built with Flowise, combining prompt orchestration, vector search and retrieval-augmented generation (RAG). Designed to experiment with knowledge grounding, context injection and conversational workflows.",
+    tags: ["LLMs", "RAG", "Embeddings"],
+    image: "/images/llmrag-preview.png",
   },
   {
     title: "Transmitting a Qubit - Quantum Engineering",
