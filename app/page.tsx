@@ -413,19 +413,27 @@ projects in deep learning, computer vision and LLM-based assistants.`}
         >
           <SectionTitle
             eyebrow="Ask Me"
-            title="Un chatbot para dudas rápidas"
-            description="Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor."
+            title="Instant answers about my work"
+            description=""
           />
           <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
             <div className="space-y-5 text-slate-600">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique
-                senectus. Nulla facilisi morbi tempus iaculis urna id volutpat.
+                This assistant is designed to answer quick questions about my background, projects and technical
+                experience, without needing to browse the full portfolio.
               </p>
               <p>
-                Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Etiam sit amet nisl purus
-                in mollis nunc sed id semper risus in hendrerit gravida rutrum.
+                It is a self-hosted LLM system, grounded on my CV and project documentation, and built using
+                retrieval-augmented generation (RAG) and prompt orchestration.
               </p>
+              <p>
+                It runs entirely on my own hardware, reflecting my interest in understanding and building AI
+                systems end to end, beyond managed cloud services.
+              </p>
+              <p>
+                Feel free to ask about any project, technology or idea shown on this site.
+              </p>
+              <p>¿Tienes alguna duda al respecto?</p>
             </div>
             <ChatMock messages={askMeMessages} />
           </div>
