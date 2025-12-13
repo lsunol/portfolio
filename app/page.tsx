@@ -416,7 +416,7 @@ projects in deep learning, computer vision and LLM-based assistants.`}
             title="Instant answers about my work"
             description=""
           />
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
             <div className="space-y-5 text-slate-600">
               <p>
                 This assistant is designed to answer quick questions about my background, projects and technical
@@ -433,7 +433,6 @@ projects in deep learning, computer vision and LLM-based assistants.`}
               <p>
                 Feel free to ask about any project, technology or idea shown on this site.
               </p>
-              <p>¿Tienes alguna duda al respecto?</p>
             </div>
             <ChatMock messages={askMeMessages} />
           </div>
