@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ChatMock } from "@/components/ChatMock";
 import { FloatingChat } from "@/components/FloatingChat";
@@ -147,18 +147,12 @@ export default function Home() {
   const [headerHeight, setHeaderHeight] = useState(0);
   const [shouldCenterHero, setShouldCenterHero] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const measure = () => {
       const headerEl = document.querySelector("header");
       const measuredHeader = headerEl ? headerEl.getBoundingClientRect().height : 0;
       setHeaderHeight(measuredHeader);
-
-      const heroEl = heroRef.current;
-      if (!heroEl) return;
-
-      const contentHeight = heroEl.scrollHeight;
-      const available = window.innerHeight - measuredHeader - 48; // keep small breathing room
-      setShouldCenterHero(contentHeight <= available);
+      setShouldCenterHero(true);
     };
 
     measure();
@@ -170,7 +164,7 @@ export default function Home() {
     <div className="relative flex min-h-screen flex-col overflow-hidden pb-24">
       {backgroundMode === "particles" ? <NeuralNetwork /> : null}
       <Header />
-      <main className="mx-auto flex w-full max-w-5xl flex-col gap-24 px-4 pt-20 sm:px-6 sm:pt-24 lg:px-0">
+      <main className="mx-auto flex w-full max-w-5xl flex-col gap-24 px-4 sm:px-6 lg:px-0">
         <motion.section
           id="hero"
           ref={heroRef}
@@ -178,7 +172,8 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className={`flex flex-col lg:flex-row gap-8 scroll-mt-28 sm:scroll-mt-32 ${shouldCenterHero ? "items-center" : ""}`}
+          className="flex flex-col lg:flex-row gap-8 items-center justify-center"
+          style={{ minHeight: "100svh", paddingTop: headerHeight + 16 }}
         >
           <div className="flex flex-col gap-10 w-full lg:w-auto" style={{ maxWidth: '690px' }}>
             <div className="neumorphic-surface rounded-[2.5rem] p-8 shadow-[20px_20px_45px_rgba(163,177,198,0.45),-20px_-20px_45px_rgba(255,255,255,0.9)]">
