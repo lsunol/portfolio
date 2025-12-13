@@ -452,13 +452,13 @@ projects in deep learning, computer vision and LLM-based assistants.`}
             description="Feel free to reach out via email or connect with me on LinkedIn. I'm always open to discussing new projects, ideas, or opportunities."
           />
           <div className="flex justify-center">
-            <div className="neumorphic-surface rounded-3xl p-8 w-full max-w-[980px]">
+            <div className="neumorphic-surface rounded-3xl p-8 max-w-[980px]">
               <div className="grid md:grid-cols-[200px_1fr] gap-8 items-center">
                 {/* Avatar slot - Left column (desktop) / Top (mobile) */}
                 <div className="flex justify-center md:justify-start">
                   <div className="neumorphic-surface rounded-2xl w-40 h-40 flex items-center justify-center overflow-hidden">
                     <img 
-                      src="/images/avatar.png" 
+                      src="/images/avatar-01.png" 
                       alt="Lluís Suñol"
                       className="w-full h-full object-cover"
                       onError={(e) => {
