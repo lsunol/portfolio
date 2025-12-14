@@ -166,7 +166,7 @@ export default function Home() {
     <div className="relative flex min-h-screen flex-col overflow-hidden pb-24">
       {backgroundMode === "particles" ? <NeuralNetwork /> : null}
       <Header />
-      <main className="mx-auto flex w-full max-w-5xl flex-col gap-24 px-4 sm:px-6 lg:px-0">
+      <main className="mx-auto flex w-full max-w-5xl flex-col gap-16 sm:gap-24 px-4 sm:px-6 lg:px-0">
         <motion.section
           id="hero"
           ref={heroRef}
@@ -459,6 +459,19 @@ projects in deep learning, computer vision and LLM-based assistants.`}
             )}
           </div>
         </motion.section>
+
+        {/* Mobile-only decorative avatar between Projects and Ask Me */}
+        <div className="block md:hidden">
+          <div className="relative mx-auto my-0 h-[320px] w-full max-w-[520px]">
+            <Image
+              src="/images/avatar-09-transparent.png"
+              alt="Decorative avatar"
+              fill
+              className="object-contain"
+              sizes="100vw"
+            />
+          </div>
+        </div>
 
         <motion.section
           id="ask-me"
