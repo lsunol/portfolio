@@ -270,8 +270,22 @@ projects in deep learning, computer vision and LLM-based assistants.`}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="space-y-10 scroll-mt-28 sm:scroll-mt-32"
+          className="relative isolate space-y-10 scroll-mt-28 sm:scroll-mt-32"
         >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-37 hidden -z-10 min-[1600px]:block -translate-x-[calc(512px+300px+48px)]"
+          >
+            <div className="relative opacity-90 h-[clamp(420px,32vw,620px)] w-[clamp(260px,20vw,420px)]">
+              <Image
+                src="/images/avatar-03-transparent.png"
+                alt=""
+                fill
+                className="object-contain"
+                sizes="(min-width: 1600px) 20vw, 0px"
+              />
+            </div>
+          </div>
           <SectionTitle
             eyebrow="Skills & Resume"
             title="A blend of 20+ years of software engineering and hands-on AI experimentation"
