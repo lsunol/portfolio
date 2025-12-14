@@ -9,10 +9,14 @@ const langLinks: LangLink[] = [
   { label: "CA", href: "/resume/lluis-sunol-resume-ca.pdf" },
 ];
 
-export function DownloadResumeButton() {
+type DownloadResumeButtonProps = {
+  compact?: boolean;
+};
+
+export function DownloadResumeButton({ compact = false }: DownloadResumeButtonProps) {
   return (
-    <div className="group relative block w-full pt-0 pb-6">
-      <div className="flex w-full items-center justify-center gap-3 rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-focus-within:-translate-y-1 group-focus-within:shadow-xl">
+    <div className={`group relative ${compact ? 'inline-block' : 'block w-full'} pt-0 ${compact ? '' : 'pb-6'}`}>
+      <div className={`flex ${compact ? '' : 'w-full'} items-center justify-center gap-3 ${compact ? 'rounded-full' : 'rounded-2xl'} bg-slate-900 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-focus-within:-translate-y-1 group-focus-within:shadow-xl`}>
         <span className="rounded-lg bg-white/10 p-2 text-white">
           <svg
             viewBox="0 0 24 24"
@@ -34,7 +38,7 @@ export function DownloadResumeButton() {
         <span>DOWNLOAD RESUME (PDF)</span>
       </div>
 
-      <div className="pointer-events-none absolute left-1/2 top-full flex w-[280px] -translate-x-1/2 -translate-y-3 mt-1 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:-translate-y-10 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:-translate-y-10 group-focus-within:opacity-100">
+      <div className={`pointer-events-none absolute left-1/2 top-full flex w-[280px] -translate-x-1/2 -translate-y-3 mt-1 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:-translate-y-10 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:-translate-y-10 group-focus-within:opacity-100`}>
         <div className="flex w-full gap-2 rounded-2xl bg-white/90 p-2.5 shadow-xl ring-1 ring-white/60 backdrop-blur">
           {langLinks.map((link) => (
             <a

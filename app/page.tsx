@@ -187,15 +187,19 @@ export default function Home() {
                 I bring 20 years of experience building scalable software systems, now focused on applying Deep Learning, LLMs and modern ML techniques to real-world problems. I combine strong backend engineering fundamentals with hands-on work in Stable Diffusion, LoRA training, CNNs and AI-driven pipelines.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                {["View Projects", "Download Resume", "Ask Me"].map((label) => (
-                  <button
-                    key={label}
-                    type="button"
-                    className="rounded-full border border-transparent bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition hover:-translate-y-0.5"
-                  >
-                    {label}
-                  </button>
-                ))}
+                <a
+                  href="#projects"
+                  className="inline-flex items-center justify-center rounded-full border border-transparent bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition hover:-translate-y-0.5"
+                >
+                  View Projects
+                </a>
+                <DownloadResumeButton compact />
+                <a
+                  href="#ask-me"
+                  className="inline-flex items-center justify-center rounded-full border border-transparent bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition hover:-translate-y-0.5"
+                >
+                  Ask Me
+                </a>
               </div>
             </div>
             <div className="grid gap-6 sm:grid-cols-2">
