@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Opción 1: Desarrollo Local
+
 First, run the development server:
 
 ```bash
@@ -17,6 +19,22 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+### Opción 2: Docker
+
+Para ejecutar el proyecto en un entorno dockerizado:
+
+```bash
+# Producción
+docker-compose up --build
+
+# Desarrollo (con hot-reload)
+docker-compose -f docker-compose.dev.yml up --build
+```
+
+La aplicación estará disponible en [http://localhost:3500](http://localhost:3500).
+
+Para más detalles sobre Docker, consulta [DOCKER.md](DOCKER.md).
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
