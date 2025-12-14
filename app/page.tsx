@@ -435,8 +435,22 @@ projects in deep learning, computer vision and LLM-based assistants.`}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="space-y-8 scroll-mt-28 sm:scroll-mt-32"
+          className="relative isolate space-y-8 scroll-mt-28 sm:scroll-mt-32"
         >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute top-56 hidden -z-10 min-[1600px]:block left-[calc(50%+512px+32px)]"
+          >
+            <div className="relative opacity-90 h-[clamp(420px,32vw,620px)] w-[clamp(260px,20vw,420px)] [transform:scaleX(-1)]">
+              <Image
+                src="/images/avatar-04-transparent.png"
+                alt=""
+                fill
+                className="object-contain"
+                sizes="(min-width: 1600px) 20vw, 0px"
+              />
+            </div>
+          </div>
           <SectionTitle
             eyebrow="Ask Me"
             title="Instant answers about my work"
