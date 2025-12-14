@@ -281,7 +281,7 @@ projects in deep learning, computer vision and LLM-based assistants.`}
         >
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-37 hidden -z-10 min-[1600px]:block -translate-x-[calc(512px+300px+48px)]"
+            className="pointer-events-none absolute left-1/2 top-37 hidden -z-10 min-[1600px]:block -translate-x-[calc(512px+300px+80px)]"
           >
             <div className="relative opacity-90 h-[clamp(420px,32vw,620px)] w-[clamp(260px,20vw,420px)]">
               <Image
