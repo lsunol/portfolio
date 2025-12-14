@@ -196,8 +196,11 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="grid gap-6 sm:grid-cols-3">
-              {[{ title: "20+", subtitle: "Years building software" }, { title: "3", subtitle: "Postgraduates this year" }, { title: "2", subtitle: "AI projects Casalimpia · Atlas" }].map((item) => (
+            <div className="grid gap-6 sm:grid-cols-2">
+              {[
+                { title: "20+ YEARS", subtitle: "BUILDING SOFTWARE" },
+                { title: "END-TO-END", subtitle: "PRODUCT MINDSET" },
+              ].map((item) => (
                 <div key={item.subtitle} className="neumorphic-surface rounded-2xl p-6 text-center">
                   <p className="text-3xl font-semibold text-slate-900">{item.title}</p>
                   <p className="text-sm uppercase tracking-[0.4em] text-slate-500">{item.subtitle}</p>
@@ -205,7 +208,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="relative flex-1 w-full lg:w-auto flex items-stretch justify-center h-[400px] lg:h-[590px]">
+          <div className="relative hidden flex-1 w-full items-stretch justify-center h-[400px] lg:flex lg:w-auto lg:h-[590px]">
             <div className="relative w-full h-full">
               <Image
                 src="/images/avatar-02-transparent.png"
@@ -214,6 +217,19 @@ export default function Home() {
                 className="object-contain"
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+
+          <div className="relative w-full lg:hidden">
+            <div className="relative h-[460px] w-full sm:h-[560px]">
+              <Image
+                src="/images/avatar-08-transparent.png"
+                alt="Lluís Suñol"
+                fill
+                className="object-contain"
+                priority
+                sizes="100vw"
               />
             </div>
           </div>
@@ -258,7 +274,7 @@ projects in deep learning, computer vision and LLM-based assistants.`}
         >
           <SectionTitle
             eyebrow="Skills & Resume"
-            title="A blend of 20+ years of software engineering and hands-on AI experimentation."
+            title="A blend of 20+ years of software engineering and hands-on AI experimentation"
             description=""
           />
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
