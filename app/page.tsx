@@ -55,6 +55,8 @@ const projects = [
   },
 ];
 
+const hasOddProjectCount = projects.length % 2 === 1;
+
 const skillGroups = [
   {
     title: "Frontend",
@@ -440,6 +442,17 @@ projects in deep learning, computer vision and LLM-based assistants.`}
             {projects.map((project) => (
               <ProjectCard key={project.title} {...project} />
             ))}
+            {hasOddProjectCount && (
+              <div className="relative hidden overflow-hidden rounded-3xl md:flex md:items-center md:justify-center">
+                <Image
+                  src="/images/avatar-09-transparent.png"
+                  alt="Decorative avatar"
+                  fill
+                  className="object-contain"
+                  sizes="(min-width: 768px) 35vw, 100vw"
+                />
+              </div>
+            )}
           </div>
         </motion.section>
 
