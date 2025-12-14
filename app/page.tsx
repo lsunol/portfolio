@@ -9,6 +9,7 @@ import { Header } from "@/components/Header";
 import { NeuralNetwork } from "@/components/NeuralNetwork";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionTitle } from "@/components/SectionTitle";
+import { FlowiseChat } from "@/components/FlowiseChat";
 import { TimelineItem } from "@/components/TimelineItem";
 import { DownloadResumeButton } from "@/components/DownloadResumeButton";
 
@@ -518,7 +519,9 @@ projects in deep learning, computer vision and LLM-based assistants.`}
                 Feel free to ask about any project, technology or idea shown on this site.
               </p>
             </div>
-            <ChatMock messages={askMeMessages} />
+            <div className="w-full">
+              <FlowiseChat />
+            </div>
           </div>
         </motion.section>
 
