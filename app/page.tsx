@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ChatMock } from "@/components/ChatMock";
-import { FloatingChat } from "@/components/FloatingChat";
+// import { ChatMock } from "@/components/ChatMock";
 import { Header } from "@/components/Header";
 import { NeuralNetwork } from "@/components/NeuralNetwork";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -52,6 +51,7 @@ const projects = [
     title: "Transmitting a Qubit - Quantum Engineering",
     description: "Hands-on implementation of qubit state preparation, transmission and measurement using Qiskit. Explores Bloch sphere representation, quantum circuits and noise impact on fidelity.",
     tags: ["Qiskit", "Quantum Circuits", "Noise Simulation", "Measurement"],
+    image: "/images/quantum_circuit.png",
     githubUrl: "https://github.com/lsunol/transmitingaqubit",
   },
 ];
@@ -632,7 +632,6 @@ projects in deep learning, computer vision and LLM-based assistants.`}
           </div>
         </motion.section>
       </main>
-      <FloatingChat />
     </div>
   );
 }
