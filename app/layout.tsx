@@ -10,9 +10,32 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lluís Suñol — Portfolio",
+  title: "Lluís Suñol — Software Engineer · AI / ML",
   description:
-    "Single-page portfolio concept showcasing work, skills, and contact information.",
+    "Portfolio with selected projects in AI, Deep Learning and Machine Learning, plus an AI assistant to ask about my work.",
+  metadataBase: new URL("https://lluissunol.dev"),
+  openGraph: {
+    type: "website",
+    url: "https://lluissunol.dev/",
+    title: "Lluís Suñol — Software Engineer · AI / ML",
+    description:
+      "Selected projects, experience and an AI assistant to ask about my work.",
+    images: [
+      {
+        url: "/images/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Lluís Suñol — Software Engineer · AI / ML",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lluís Suñol — Software Engineer · AI / ML",
+    description:
+      "Selected projects, experience and an AI assistant to ask about my work.",
+    images: ["/images/og.jpg"],
+  },
 };
 
 export default function RootLayout({
