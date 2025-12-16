@@ -614,7 +614,7 @@ projects in deep learning, computer vision and LLM-based assistants.`}
 
                   {/* Classic CV */}
                   <a 
-                    href="https://cv.lluissunol.duckdns.org"
+                    href="https://cv.lluissunol.dev"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-slate-700 hover:text-slate-900 transition-colors group"
